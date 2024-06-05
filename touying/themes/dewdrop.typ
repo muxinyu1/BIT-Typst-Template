@@ -55,7 +55,7 @@
         block(spacing: 1em, info.institution)
       }
       block(
-        fill: self.colors.neutral-light,
+        fill: self.colors.primary,
         inset: 1em,
         width: 100%,
         radius: 0.2em,
@@ -236,9 +236,9 @@
     })
   }
   set align(top)
-  show: block.with(inset: (top: .5em, x: 2em))
+  show: block.with(inset: (x: 2em))
   show linebreak: it => it + v(-1em)
-  set text(size: .7em)
+  set text(size: 12pt, font: ("Arial", "SimHei"))
   grid(columns: cols.map(_ => auto).intersperse(1fr), ..cols.intersperse([]))
 })
 
@@ -288,12 +288,13 @@
     set text(size: 14pt)
     set align(bottom)
     show: pad.with(10pt)
-    box(fill: rgb("#0c4842"),
-    outset: (top: 2em, left: 1em, right: 1em))[
-      #h(1em)
-      #text(fill: self.colors.neutral-darkest.lighten(40%), utils.call-or-display(self, self.d-footer))
-      #v(10pt)
-    ]
+    // box(fill: rgb("#005b30"),
+
+    // outset: (top: 2em, left: 1em, right: 1em))[
+    //   #h(1em)
+    //   #text(fill: self.colors.neutral-darkest.lighten(40%), utils.call-or-display(self, self.d-footer))
+    //   #v(10pt)
+    // ]
     if self.d-navigation == "sidebar" {
       place(right + top, (self.methods.d-sidebar)(self: self))
     } else if self.d-navigation == "mini-slides" {
@@ -305,9 +306,8 @@
     set text(size: 14pt, weight: "bold", fill: self.colors.neutral-darkest.lighten(50%))
     set align(bottom)
     show: pad.with(8pt)
-    [Date: 2024/4/22]
+    [#datetime.today().year().#datetime.today().month().6]
     h(1fr)
-    [Page: ]
     text(utils.call-or-display(self, self.d-footer-right))
     h(1em)
   }

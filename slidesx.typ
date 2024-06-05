@@ -3,16 +3,14 @@
 #import "@preview/tablex:0.0.8": tablex, colspanx, rowspanx, hlinex, vlinex
 #import "@preview/algo:0.3.3": algo, i, d, comment, code
 
-#let songti = ("New Computer Modern",
- "Source Han Serif SC", "Songti SC", "Songti TC", "SimSun")
+#let songti = ("New Computer Modern", "Source Han Serif SC", "Songti SC", "Songti TC", "SimSun")
 #let heiti = ("SimHei", "Source Han Sans")
 #set text(size: 25pt, font: songti, lang: "cn")
 #show page: set page(margin: (bottom: 8pt))
 #show footnote.entry: set text(size: 14pt)
 #set footnote.entry(gap: 0.4em)
 
-#show raw: set text(
-  font: ("New Computer Modern Mono", "KaiTi"), size: 18pt)
+#show raw: set text(font: ("New Computer Modern Mono", "KaiTi"), size: 18pt)
 
 #let algo01 = [
 #[
@@ -81,10 +79,10 @@
 
 #let show-jsonnext = align(center)[
 #rect(stroke: 1pt, radius: 0.5em)[
-  #link(label("edge"))[#image("../assets/zz03.png", width: 80%)] <jsonnext>]
+)[] <jsonnext>]
 ]
 
-#let show-edge = link(label("jsonnext"))[#image("../assets/zz04.png", width: 100%) <edge> ]
+#let show-edge = link(label("jsonnext"))[]
 
 #let s = themes.dewdrop.register(
   aspect-ratio: "16-9",
@@ -117,7 +115,7 @@
   ],
   // date: datetime.today(),
   institution: [
-    #box(baseline: 0.8em)[#image("../assets/paper-scnu.svg", width: 40%)] #text(size: 24pt, font: heiti)[~$dot.c$~本科毕设答辩]
+    #box(baseline: 0.8em)[] #text(size: 24pt, font: heiti)[~$dot.c$~本科毕设答辩]
   ],
 )
 #let (init, slides, touying-outline, alert) = utils.methods(s)
@@ -290,9 +288,6 @@ $
 - 两个需求异曲同工，能够进行统一处理
 
 #newpage
-#image("./imgs/pic701-1.svg", width: 128*2.6pt)
-#v(-1em)
-#image("./imgs/pic702-1.svg", width: 128*3pt)
 
 - *上图*：*#_red[难题]*（*应用程序**#_red[不易]*处理*模糊*的信息）
 - *下图*：本研究的*解决方案*（基于约束解码器） // 无需微调，即插即用
@@ -419,19 +414,6 @@ $M_P (s) = {#[```py '{', '[', '"', '0', /1-9/, '-', 't', 'f', 'n'```]}$ 。
   stroke: none,
   columns: 2,
    gutter: -0em,
-  [
-#image("../assets/gpt2-fig-003.svg")
-#v(-1em) (1) OpenAI/GPT-2 117M
-  ],[
-#image("../assets/gpt2-large-fig-003.svg")
-#v(-1em) (2) OpenAI/GPT-2 Large 774M
-  ],[
-#image("../assets/gpt2-xl-fig-003.svg")
-#v(-1em) (3) OpenAI/GPT-2 XL 1558M
-  ],[
-#image("../assets/gemma-fig-003.svg")
-#v(-1em) (4) Google/Gemma-7B 7751M
-  ]
 )
 ]
 
@@ -563,7 +545,7 @@ $
 - *C语言代码的例子*
   - #box(stroke: 0pt, baseline: 0.6em)[```c if ( x > 9 ) { x = 0; y = y + 1; }```]
 #v(-0.5em)
-#image("../assets/C_grammar_stmt_svg.svg", width: 100%)
+
 // #v(-0.5em)
 - *左侧*：C语言的一个子集CFG表示
 - *右侧*：将代码表示为CFG的推导树
@@ -721,7 +703,7 @@ class JSONGenerator(TextGenerator):
 #v(-0.5em)
 - *JSON语法的有环示意图*
 #v(-2.5em)
-#image("../assets/json-mermaid2.svg")
+
 
 #newpage
 
@@ -814,7 +796,7 @@ class MermaidGenerator(TextGenerator):
 
 
 #align(center)[
-#image("./imgs/pic704-1.svg", width: 100%)
+
 ]
 
 - 两份相关专利已提交官方审核
@@ -824,7 +806,7 @@ class MermaidGenerator(TextGenerator):
 #newpage
 // #v(-0.5em)
 #align(center)[
-#image("./imgs/pic903.min.svg", width: 70%)
+
 ]
 
 - 本研究结合*语言模型*的一个*系统流程图* // 概括如何结合LLM
@@ -833,7 +815,7 @@ class MermaidGenerator(TextGenerator):
 
 #titlebig[*效果 (Effect)*]
 
-#box(baseline: 1.5em)[#image("../assets/fig_save3.svg", width: 50%)]~#box(width: 45%, height: 4.5em)[
+#box(baseline: 1.5em)[]~#box(width: 45%, height: 4.5em)[
   #set par(leading: 0.8em)
   - 当 $Sigma_"LLM" subset.eq "Unicode"$
     - *节约 $83.5%$ 采样*
@@ -893,15 +875,13 @@ class MermaidGenerator(TextGenerator):
 
 #titlebig[*致谢 (ACKs)*]
 
-1. *感谢上海交通大学和英特尔的Hansimov#footnote[https://github.com/Hansimov]* // 于泽汉，在繁忙之际热情非常热情非常仔细的阅读了我的文章初稿，并给予了大量靠谱的修改意见和支持
+1. *感谢上海交通大学和英特尔的Hansimov#footnote[https://github.com/Hansimov]* // 在繁忙之际热情非常热情非常仔细的阅读了我的文章初稿，并给予了大量靠谱的修改意见和支持
 2. 感谢软件协会 (SoCoding#footnote[https://socoding.cn/]) 、香农和椰社#footnote[https://socoding.cn/organization]
-3. 感谢Joseph Pan#footnote[https://github.com/wzpan]支持我的相关工作 // 潘伟洲
+3. 感谢Joseph Pan#footnote[https://github.com/wzpan]支持我的相关工作
 4. 感谢Typst#footnote[https://github.com/typst/typst]、NewCM#footnote[https://git.gnu.org.ua/newcm.git]、Noto#footnote[https://fonts.google.com/noto]
    - Paper和Slides采用Typst 语言排版
    - Slides的字体采用NewCM和Noto
 5. *感谢前人、亲人、学校和指导老师*
-
-// 想讲的有很多，但是限于篇幅和时间。。。
 
 #let ref = [
 #newpage
@@ -911,7 +891,7 @@ class MermaidGenerator(TextGenerator):
 #[
 #set par(justify: false)
 #set text(size: 12pt)
-#bibliography("../ref.bib", style: "gb-7714-2015-numeric", title: none)
+#bibliography("./refs.bib", style: "gb-7714-2015-numeric", title: none)
 ]
 ]
 
